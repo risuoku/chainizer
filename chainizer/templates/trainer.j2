@@ -1,0 +1,50 @@
+import chainer
+import chainer.links as L
+import chainer.functions as F
+import chainer.training as training
+
+# chain
+
+class {{ model.name }}(chainer.Chain):
+    def __init__(self):
+        super({{ model.name }}, self).__init__()
+        {%- for stmt in statements.model.init %}
+        {{ stmt }}
+        {%- endfor %}
+
+    def __call__(self, x):
+        {%- for stmt in statements.model.call %}
+        {{ stmt }}
+        {%- endfor %}
+
+
+# main
+
+def main():
+    # datasource
+    {%- for stmt in statements.datasource %}
+    {{ stmt }}
+    {%- endfor %}
+
+    # model
+    model = {{ model.name }}()
+    {%- if model.use_classifier %}
+    model = L.Classifier(model)
+    {%- endif %}
+
+    # optimizer
+    {%- for stmt in statements.optimizer %}
+    {{ stmt }}
+    {%- endfor %}
+    optimizer.setup(model)
+
+    # updater, trainer
+    updater = training.StandardUpdater(train_iter, optimizer)
+    trainer = training.Trainer(updater, ({{ epoch }}, 'epoch'))
+
+    # run
+    trainer.run()
+
+
+if __name__ == '__main__':
+    main()

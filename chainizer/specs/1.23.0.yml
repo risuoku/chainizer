@@ -1,0 +1,2168 @@
+functions: !!python/object/apply:collections.OrderedDict
+- - - Accuracy
+    - args:
+      - name: ignore_label
+        required: false
+  - - Arccos
+    - args: []
+  - - Arcsin
+    - args: []
+  - - Arctan
+    - args: []
+  - - ArgMax
+    - args:
+      - name: axis
+        required: false
+  - - ArgMin
+    - args:
+      - name: axis
+        required: false
+  - - AveragePooling2D
+    - args:
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: cover_all
+        required: false
+      - name: use_cudnn
+        required: false
+  - - AveragePoolingND
+    - args:
+      - name: ndim
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: cover_all
+        required: false
+      - name: use_cudnn
+        required: false
+  - - BatchDet
+    - args: []
+  - - BatchInv
+    - args: []
+  - - BatchL2NormSquared
+    - args: []
+  - - BatchMatMul
+    - args:
+      - name: transa
+        required: false
+      - name: transb
+        required: false
+  - - BatchNormalization
+    - args:
+      - name: size
+        required: true
+      - name: decay
+        required: false
+      - name: eps
+        required: false
+      - name: dtype
+        required: false
+      - name: use_gamma
+        required: false
+      - name: use_beta
+        required: false
+      - name: initial_gamma
+        required: false
+      - name: initial_beta
+        required: false
+      - name: use_cudnn
+        required: false
+  - - Bilinear
+    - args:
+      - name: left_size
+        required: true
+      - name: right_size
+        required: true
+      - name: out_size
+        required: true
+      - name: nobias
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+  - - BinaryAccuracy
+    - args: []
+  - - BinaryHierarchicalSoftmax
+    - args:
+      - name: in_size
+        required: true
+      - name: tree
+        required: true
+  - - Broadcast
+    - args: []
+  - - BroadcastTo
+    - args:
+      - name: shape
+        required: true
+  - - CReLU
+    - args:
+      - name: axis
+        required: false
+  - - Cast
+    - args:
+      - name: typ
+        required: true
+  - - Ceil
+    - args: []
+  - - ClassificationSummary
+    - args:
+      - name: label_num
+        required: true
+      - name: beta
+        required: true
+      - name: ignore_label
+        required: true
+  - - Clip
+    - args:
+      - name: x_min
+        required: true
+      - name: x_max
+        required: true
+  - - ClippedReLU
+    - args:
+      - name: z
+        required: true
+  - - Concat
+    - args:
+      - name: axis
+        required: false
+  - - ConnectionistTemporalClassification
+    - args:
+      - name: blank_symbol
+        required: true
+  - - Contrastive
+    - args:
+      - name: margin
+        required: true
+  - - Convolution2D
+    - args:
+      - name: in_channels
+        required: true
+      - name: out_channels
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: wscale
+        required: false
+      - name: bias
+        required: false
+      - name: nobias
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+      - name: deterministic
+        required: false
+  - - Copy
+    - args:
+      - name: out_device
+        required: true
+  - - Cos
+    - args: []
+  - - Cosh
+    - args: []
+  - - CrossCovariance
+    - args: []
+  - - DeCov
+    - args: []
+  - - Depth2Space
+    - args:
+      - name: r
+        required: true
+  - - DilatedConvolution2D
+    - args:
+      - name: in_channels
+        required: true
+      - name: out_channels
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: dilate
+        required: false
+      - name: wscale
+        required: false
+      - name: bias
+        required: false
+      - name: nobias
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+  - - Dropout
+    - args:
+      - name: dropout_ratio
+        required: true
+  - - ELU
+    - args:
+      - name: alpha
+        required: false
+  - - EmbedID
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: initialW
+        required: false
+      - name: ignore_label
+        required: false
+  - - Exp
+    - args: []
+  - - ExpandDims
+    - args:
+      - name: axis
+        required: true
+  - - Expm1
+    - args: []
+  - - Flatten
+    - args: []
+  - - FlipLR
+    - args: []
+  - - FlipUD
+    - args: []
+  - - Floor
+    - args: []
+  - - Fmod
+    - args: []
+  - - Forget
+    - args:
+      - name: func
+        required: true
+  - - Gaussian
+    - args: []
+  - - GetItem
+    - args:
+      - name: slices
+        required: true
+  - - HardSigmoid
+    - args: []
+  - - Hinge
+    - args:
+      - name: norm
+        required: false
+  - - HuberLoss
+    - args:
+      - name: delta
+        required: true
+  - - Identity
+    - args: []
+  - - Inception
+    - args:
+      - name: in_channels
+        required: true
+      - name: out1
+        required: true
+      - name: proj3
+        required: true
+      - name: out3
+        required: true
+      - name: proj5
+        required: true
+      - name: out5
+        required: true
+      - name: proj_pool
+        required: true
+      - name: conv_init
+        required: false
+      - name: bias_init
+        required: false
+  - - InceptionBN
+    - args:
+      - name: in_channels
+        required: true
+      - name: out1
+        required: true
+      - name: proj3
+        required: true
+      - name: out3
+        required: true
+      - name: proj33
+        required: true
+      - name: out33
+        required: true
+      - name: pooltype
+        required: true
+      - name: proj_pool
+        required: false
+      - name: stride
+        required: false
+      - name: conv_init
+        required: false
+      - name: dtype
+        required: false
+  - - Inv
+    - args: []
+  - - LSTM
+    - args: []
+  - - LeakyReLU
+    - args:
+      - name: slope
+        required: false
+  - - Linear
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: wscale
+        required: false
+      - name: bias
+        required: false
+      - name: nobias
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+  - - LinearInterpolate
+    - args: []
+  - - LocalResponseNormalization
+    - args:
+      - name: n
+        required: false
+      - name: k
+        required: false
+      - name: alpha
+        required: false
+      - name: beta
+        required: false
+  - - Log
+    - args: []
+  - - Log10
+    - args: []
+  - - Log1p
+    - args: []
+  - - Log2
+    - args: []
+  - - LogSoftmax
+    - args:
+      - name: use_cudnn
+        required: false
+  - - LogSumExp
+    - args:
+      - name: axis
+        required: false
+  - - MatMul
+    - args:
+      - name: transa
+        required: false
+      - name: transb
+        required: false
+  - - Max
+    - args:
+      - name: axis
+        required: false
+      - name: keepdims
+        required: false
+  - - MaxPooling2D
+    - args:
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: cover_all
+        required: false
+      - name: use_cudnn
+        required: false
+  - - MaxPoolingND
+    - args:
+      - name: ndim
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: cover_all
+        required: false
+      - name: use_cudnn
+        required: false
+  - - Maximum
+    - args: []
+  - - MeanAbsoluteError
+    - args: []
+  - - MeanSquaredError
+    - args: []
+  - - Min
+    - args:
+      - name: axis
+        required: false
+      - name: keepdims
+        required: false
+  - - Minimum
+    - args: []
+  - - NStepLSTM
+    - args:
+      - name: n_layers
+        required: true
+      - name: states
+        required: true
+      - name: train
+        required: false
+  - - NegativeSampling
+    - args:
+      - name: in_size
+        required: true
+      - name: counts
+        required: true
+      - name: sample_size
+        required: true
+      - name: power
+        required: false
+  - - NormalizeL2
+    - args:
+      - name: eps
+        required: false
+      - name: axis
+        required: false
+  - - PReLU
+    - args:
+      - name: shape
+        required: false
+      - name: init
+        required: false
+  - - Pad
+    - args:
+      - name: pad_width
+        required: true
+      - name: mode
+        required: true
+      - name: keywords
+        required: true
+  - - PadSequence
+    - args:
+      - name: length
+        required: true
+      - name: padding
+        required: true
+  - - Parameter
+    - args:
+      - name: array
+        required: true
+  - - Permutate
+    - args:
+      - name: axis
+        required: false
+      - name: inv
+        required: false
+  - - ROIPooling2D
+    - args:
+      - name: outh
+        required: true
+      - name: outw
+        required: true
+      - name: spatial_scale
+        required: true
+  - - ReLU
+    - args:
+      - name: use_cudnn
+        required: false
+  - - Reshape
+    - args:
+      - name: shape
+        required: true
+  - - ResizeImages
+    - args:
+      - name: output_shape
+        required: true
+  - - Rollaxis
+    - args:
+      - name: axis
+        required: true
+      - name: start
+        required: true
+  - - SLSTM
+    - args: []
+  - - SelectItem
+    - args: []
+  - - Sigmoid
+    - args:
+      - name: use_cudnn
+        required: false
+  - - SigmoidCrossEntropy
+    - args:
+      - name: use_cudnn
+        required: false
+      - name: normalize
+        required: false
+  - - Sin
+    - args: []
+  - - Sinh
+    - args: []
+  - - Softmax
+    - args:
+      - name: use_cudnn
+        required: false
+  - - SoftmaxCrossEntropy
+    - args:
+      - name: use_cudnn
+        required: false
+      - name: normalize
+        required: false
+      - name: cache_score
+        required: false
+      - name: class_weight
+        required: false
+      - name: ignore_label
+        required: false
+  - - Softplus
+    - args:
+      - name: beta
+        required: false
+  - - Space2Depth
+    - args:
+      - name: r
+        required: true
+  - - SpatialPyramidPooling2D
+    - args:
+      - name: x_shape
+        required: true
+      - name: pyramid_height
+        required: true
+      - name: pooling_class
+        required: true
+      - name: use_cudnn
+        required: false
+  - - SplitAxis
+    - args:
+      - name: indices_or_sections
+        required: true
+      - name: axis
+        required: true
+  - - Sqrt
+    - args: []
+  - - Square
+    - args: []
+  - - SquaredDifference
+    - args: []
+  - - Squeeze
+    - args:
+      - name: axis
+        required: false
+  - - Sum
+    - args:
+      - name: axis
+        required: false
+  - - Swapaxes
+    - args:
+      - name: axis1
+        required: true
+      - name: axis2
+        required: true
+  - - Tan
+    - args: []
+  - - Tanh
+    - args:
+      - name: use_cudnn
+        required: false
+  - - TheanoFunction
+    - args:
+      - name: forward_func
+        required: true
+      - name: backward_func
+        required: true
+  - - Tile
+    - args:
+      - name: reps
+        required: true
+  - - Transpose
+    - args:
+      - name: axes
+        required: false
+  - - TransposeSequence
+    - args: []
+  - - Triplet
+    - args:
+      - name: margin
+        required: true
+  - - Unpooling2D
+    - args:
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: cover_all
+        required: false
+  - - UnpoolingND
+    - args:
+      - name: ndim
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: cover_all
+        required: false
+  - - Upsampling2D
+    - args:
+      - name: indexes
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: cover_all
+        required: false
+  - - Where
+    - args: []
+  - - Zoneout
+    - args:
+      - name: zoneout_ratio
+        required: true
+  - - absolute
+    - args:
+      - name: self
+        required: true
+  - - accuracy
+    - args:
+      - name: y
+        required: true
+      - name: t
+        required: true
+      - name: ignore_label
+        required: false
+  - - arccos
+    - args:
+      - name: x
+        required: true
+  - - arcsin
+    - args:
+      - name: x
+        required: true
+  - - arctan
+    - args:
+      - name: x
+        required: true
+  - - argmax
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+  - - argmax_crf1d
+    - args:
+      - name: cost
+        required: true
+      - name: xs
+        required: true
+  - - argmin
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+  - - average
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+      - name: weights
+        required: false
+  - - average_pooling_2d
+    - args:
+      - name: x
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: use_cudnn
+        required: false
+  - - average_pooling_nd
+    - args:
+      - name: x
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: use_cudnn
+        required: false
+  - - batch_det
+    - args:
+      - name: a
+        required: true
+  - - batch_inv
+    - args:
+      - name: a
+        required: true
+  - - batch_l2_norm_squared
+    - args:
+      - name: x
+        required: true
+  - - batch_matmul
+    - args:
+      - name: a
+        required: true
+      - name: b
+        required: true
+      - name: transa
+        required: false
+      - name: transb
+        required: false
+  - - batch_normalization
+    - args:
+      - name: x
+        required: true
+      - name: gamma
+        required: true
+      - name: beta
+        required: true
+      - name: eps
+        required: false
+      - name: running_mean
+        required: false
+      - name: running_var
+        required: false
+      - name: decay
+        required: false
+      - name: use_cudnn
+        required: false
+  - - bernoulli_nll
+    - args:
+      - name: x
+        required: true
+      - name: y
+        required: true
+  - - bias
+    - args:
+      - name: x
+        required: true
+      - name: y
+        required: true
+      - name: axis
+        required: false
+  - - bilinear
+    - args:
+      - name: e1
+        required: true
+      - name: e2
+        required: true
+      - name: W
+        required: true
+      - name: V1
+        required: false
+      - name: V2
+        required: false
+      - name: b
+        required: false
+  - - binary_accuracy
+    - args:
+      - name: y
+        required: true
+      - name: t
+        required: true
+  - - black_out
+    - args:
+      - name: x
+        required: true
+      - name: t
+        required: true
+      - name: W
+        required: true
+      - name: samples
+        required: true
+  - - broadcast
+    - args:
+      - name: args
+        required: true
+  - - broadcast_to
+    - args:
+      - name: x
+        required: true
+      - name: shape
+        required: true
+  - - cast
+    - args:
+      - name: x
+        required: true
+      - name: typ
+        required: true
+  - - ceil
+    - args:
+      - name: x
+        required: true
+  - - classification_summary
+    - args:
+      - name: y
+        required: true
+      - name: t
+        required: true
+      - name: label_num
+        required: false
+      - name: beta
+        required: false
+      - name: ignore_label
+        required: false
+  - - clip
+    - args:
+      - name: x
+        required: true
+      - name: x_min
+        required: true
+      - name: x_max
+        required: true
+  - - clipped_relu
+    - args:
+      - name: x
+        required: true
+      - name: z
+        required: false
+  - - concat
+    - args:
+      - name: xs
+        required: true
+      - name: axis
+        required: false
+  - - connectionist_temporal_classification
+    - args:
+      - name: x
+        required: true
+      - name: t
+        required: true
+      - name: blank_symbol
+        required: true
+      - name: input_length
+        required: false
+      - name: label_length
+        required: false
+  - - contrastive
+    - args:
+      - name: x0
+        required: true
+      - name: x1
+        required: true
+      - name: y
+        required: true
+      - name: margin
+        required: false
+  - - convolution_2d
+    - args:
+      - name: x
+        required: true
+      - name: W
+        required: true
+      - name: b
+        required: false
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: cover_all
+        required: false
+      - name: deterministic
+        required: false
+  - - convolution_nd
+    - args:
+      - name: x
+        required: true
+      - name: W
+        required: true
+      - name: b
+        required: false
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: cover_all
+        required: false
+  - - copy
+    - args:
+      - name: x
+        required: true
+      - name: dst
+        required: true
+  - - cos
+    - args:
+      - name: x
+        required: true
+  - - cosh
+    - args:
+      - name: x
+        required: true
+  - - crelu
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+  - - crf1d
+    - args:
+      - name: cost
+        required: true
+      - name: xs
+        required: true
+      - name: ys
+        required: true
+  - - cross_covariance
+    - args:
+      - name: y
+        required: true
+      - name: z
+        required: true
+  - - deconvolution_2d
+    - args:
+      - name: x
+        required: true
+      - name: W
+        required: true
+      - name: b
+        required: false
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: deterministic
+        required: false
+  - - deconvolution_nd
+    - args:
+      - name: x
+        required: true
+      - name: W
+        required: true
+      - name: b
+        required: false
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: use_cudnn
+        required: false
+  - - decov
+    - args:
+      - name: h
+        required: true
+  - - depth2space
+    - args:
+      - name: X
+        required: true
+      - name: r
+        required: true
+  - - det
+    - args:
+      - name: a
+        required: true
+  - - dilated_convolution_2d
+    - args:
+      - name: x
+        required: true
+      - name: W
+        required: true
+      - name: b
+        required: false
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: dilate
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: cover_all
+        required: false
+  - - dropout
+    - args:
+      - name: x
+        required: true
+      - name: ratio
+        required: false
+      - name: train
+        required: false
+  - - dstack
+    - args:
+      - name: xs
+        required: true
+  - - elu
+    - args:
+      - name: x
+        required: true
+      - name: alpha
+        required: false
+  - - embed_id
+    - args:
+      - name: x
+        required: true
+      - name: W
+        required: true
+      - name: ignore_label
+        required: false
+  - - exp
+    - args:
+      - name: x
+        required: true
+  - - expand_dims
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: true
+  - - expm1
+    - args:
+      - name: x
+        required: true
+  - - f1_score
+    - args:
+      - name: y
+        required: true
+      - name: t
+        required: true
+      - name: label_num
+        required: false
+      - name: ignore_label
+        required: false
+  - - fixed_batch_normalization
+    - args:
+      - name: x
+        required: true
+      - name: gamma
+        required: true
+      - name: beta
+        required: true
+      - name: mean
+        required: true
+      - name: var
+        required: true
+      - name: eps
+        required: false
+      - name: use_cudnn
+        required: false
+  - - flatten
+    - args:
+      - name: x
+        required: true
+  - - fliplr
+    - args:
+      - name: a
+        required: true
+  - - flipud
+    - args:
+      - name: a
+        required: true
+  - - floor
+    - args:
+      - name: x
+        required: true
+  - - fmod
+    - args:
+      - name: x
+        required: true
+      - name: divisor
+        required: true
+  - - forget
+    - args:
+      - name: func
+        required: true
+      - name: xs
+        required: true
+  - - gaussian
+    - args:
+      - name: mean
+        required: true
+      - name: ln_var
+        required: true
+  - - gaussian_kl_divergence
+    - args:
+      - name: mean
+        required: true
+      - name: ln_var
+        required: true
+  - - gaussian_nll
+    - args:
+      - name: x
+        required: true
+      - name: mean
+        required: true
+      - name: ln_var
+        required: true
+  - - get_item
+    - args:
+      - name: x
+        required: true
+      - name: slices
+        required: true
+  - - hard_sigmoid
+    - args:
+      - name: x
+        required: true
+  - - hinge
+    - args:
+      - name: x
+        required: true
+      - name: t
+        required: true
+      - name: norm
+        required: false
+  - - hstack
+    - args:
+      - name: xs
+        required: true
+  - - huber_loss
+    - args:
+      - name: x
+        required: true
+      - name: t
+        required: true
+      - name: delta
+        required: true
+  - - identity
+    - args:
+      - name: inputs
+        required: true
+  - - inv
+    - args:
+      - name: a
+        required: true
+  - - leaky_relu
+    - args:
+      - name: x
+        required: true
+      - name: slope
+        required: false
+  - - linear
+    - args:
+      - name: x
+        required: true
+      - name: W
+        required: true
+      - name: b
+        required: false
+  - - linear_interpolate
+    - args:
+      - name: p
+        required: true
+      - name: x
+        required: true
+      - name: y
+        required: true
+  - - local_response_normalization
+    - args:
+      - name: x
+        required: true
+      - name: n
+        required: false
+      - name: k
+        required: false
+      - name: alpha
+        required: false
+      - name: beta
+        required: false
+  - - log
+    - args:
+      - name: x
+        required: true
+  - - log10
+    - args:
+      - name: x
+        required: true
+  - - log1p
+    - args:
+      - name: x
+        required: true
+  - - log2
+    - args:
+      - name: x
+        required: true
+  - - log_softmax
+    - args:
+      - name: x
+        required: true
+      - name: use_cudnn
+        required: false
+  - - logsumexp
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+  - - lstm
+    - args:
+      - name: c_prev
+        required: true
+      - name: x
+        required: true
+  - - matmul
+    - args:
+      - name: a
+        required: true
+      - name: b
+        required: true
+      - name: transa
+        required: false
+      - name: transb
+        required: false
+  - - max
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+      - name: keepdims
+        required: false
+  - - max_pooling_2d
+    - args:
+      - name: x
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: cover_all
+        required: false
+      - name: use_cudnn
+        required: false
+  - - max_pooling_nd
+    - args:
+      - name: x
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: cover_all
+        required: false
+      - name: use_cudnn
+        required: false
+  - - maximum
+    - args:
+      - name: x1
+        required: true
+      - name: x2
+        required: true
+  - - maxout
+    - args:
+      - name: x
+        required: true
+      - name: pool_size
+        required: true
+      - name: axis
+        required: false
+  - - mean_absolute_error
+    - args:
+      - name: x0
+        required: true
+      - name: x1
+        required: true
+  - - mean_squared_error
+    - args:
+      - name: x0
+        required: true
+      - name: x1
+        required: true
+  - - min
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+      - name: keepdims
+        required: false
+  - - minimum
+    - args:
+      - name: x1
+        required: true
+      - name: x2
+        required: true
+  - - n_step_lstm
+    - args:
+      - name: n_layers
+        required: true
+      - name: dropout_ratio
+        required: true
+      - name: hx
+        required: true
+      - name: cx
+        required: true
+      - name: ws
+        required: true
+      - name: bs
+        required: true
+      - name: xs
+        required: true
+      - name: train
+        required: false
+      - name: use_cudnn
+        required: false
+  - - negative_sampling
+    - args:
+      - name: x
+        required: true
+      - name: t
+        required: true
+      - name: W
+        required: true
+      - name: sampler
+        required: true
+      - name: sample_size
+        required: true
+  - - normalize
+    - args:
+      - name: x
+        required: true
+      - name: eps
+        required: false
+      - name: axis
+        required: false
+  - - pad
+    - args:
+      - name: x
+        required: true
+      - name: pad_width
+        required: true
+      - name: mode
+        required: true
+      - name: keywords
+        required: true
+  - - pad_sequence
+    - args:
+      - name: xs
+        required: true
+      - name: length
+        required: false
+      - name: padding
+        required: false
+  - - permutate
+    - args:
+      - name: x
+        required: true
+      - name: indices
+        required: true
+      - name: axis
+        required: false
+      - name: inv
+        required: false
+  - - precision
+    - args:
+      - name: y
+        required: true
+      - name: t
+        required: true
+      - name: label_num
+        required: false
+      - name: ignore_label
+        required: false
+  - - prelu
+    - args:
+      - name: x
+        required: true
+      - name: W
+        required: true
+  - - r2_score
+    - args:
+      - name: pred
+        required: true
+      - name: 'true'
+        required: true
+      - name: sample_weight
+        required: false
+      - name: multioutput
+        required: false
+  - - recall
+    - args:
+      - name: y
+        required: true
+      - name: t
+        required: true
+      - name: label_num
+        required: false
+      - name: ignore_label
+        required: false
+  - - relu
+    - args:
+      - name: x
+        required: true
+      - name: use_cudnn
+        required: false
+  - - reshape
+    - args:
+      - name: x
+        required: true
+      - name: shape
+        required: true
+  - - resize_images
+    - args:
+      - name: x
+        required: true
+      - name: output_shape
+        required: true
+  - - roi_pooling_2d
+    - args:
+      - name: x
+        required: true
+      - name: rois
+        required: true
+      - name: outh
+        required: true
+      - name: outw
+        required: true
+      - name: spatial_scale
+        required: true
+  - - rollaxis
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: true
+      - name: start
+        required: false
+  - - rsqrt
+    - args:
+      - name: x
+        required: true
+  - - scale
+    - args:
+      - name: x
+        required: true
+      - name: y
+        required: true
+      - name: axis
+        required: false
+  - - select_item
+    - args:
+      - name: x
+        required: true
+      - name: t
+        required: true
+  - - separate
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+  - - sigmoid
+    - args:
+      - name: x
+        required: true
+      - name: use_cudnn
+        required: false
+  - - sigmoid_cross_entropy
+    - args:
+      - name: x
+        required: true
+      - name: t
+        required: true
+      - name: use_cudnn
+        required: false
+      - name: normalize
+        required: false
+  - - sin
+    - args:
+      - name: x
+        required: true
+  - - sinh
+    - args:
+      - name: x
+        required: true
+  - - slstm
+    - args:
+      - name: c_prev1
+        required: true
+      - name: c_prev2
+        required: true
+      - name: x1
+        required: true
+      - name: x2
+        required: true
+  - - softmax
+    - args:
+      - name: x
+        required: true
+      - name: use_cudnn
+        required: false
+  - - softmax_cross_entropy
+    - args:
+      - name: x
+        required: true
+      - name: t
+        required: true
+      - name: use_cudnn
+        required: false
+      - name: normalize
+        required: false
+      - name: cache_score
+        required: false
+      - name: class_weight
+        required: false
+      - name: ignore_label
+        required: false
+  - - softplus
+    - args:
+      - name: x
+        required: true
+      - name: beta
+        required: false
+  - - space2depth
+    - args:
+      - name: X
+        required: true
+      - name: r
+        required: true
+  - - spatial_pyramid_pooling_2d
+    - args:
+      - name: x
+        required: true
+      - name: pyramid_height
+        required: true
+      - name: pooling_class
+        required: true
+      - name: use_cudnn
+        required: false
+  - - split_axis
+    - args:
+      - name: x
+        required: true
+      - name: indices_or_sections
+        required: true
+      - name: axis
+        required: true
+      - name: force_tuple
+        required: false
+  - - sqrt
+    - args:
+      - name: x
+        required: true
+  - - square
+    - args:
+      - name: x
+        required: true
+  - - squared_difference
+    - args:
+      - name: x1
+        required: true
+      - name: x2
+        required: true
+  - - squeeze
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+  - - stack
+    - args:
+      - name: xs
+        required: true
+      - name: axis
+        required: false
+  - - sum
+    - args:
+      - name: x
+        required: true
+      - name: axis
+        required: false
+  - - swapaxes
+    - args:
+      - name: x
+        required: true
+      - name: axis1
+        required: true
+      - name: axis2
+        required: true
+  - - tan
+    - args:
+      - name: x
+        required: true
+  - - tanh
+    - args:
+      - name: x
+        required: true
+      - name: use_cudnn
+        required: false
+  - - tile
+    - args:
+      - name: x
+        required: true
+      - name: reps
+        required: true
+  - - transpose
+    - args:
+      - name: x
+        required: true
+      - name: axes
+        required: false
+  - - transpose_sequence
+    - args:
+      - name: xs
+        required: true
+  - - triplet
+    - args:
+      - name: anchor
+        required: true
+      - name: positive
+        required: true
+      - name: negative
+        required: true
+      - name: margin
+        required: false
+  - - unpooling_2d
+    - args:
+      - name: x
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: cover_all
+        required: false
+  - - unpooling_nd
+    - args:
+      - name: x
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: cover_all
+        required: false
+  - - upsampling_2d
+    - args:
+      - name: x
+        required: true
+      - name: indexes
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: cover_all
+        required: false
+  - - vstack
+    - args:
+      - name: xs
+        required: true
+  - - where
+    - args:
+      - name: condition
+        required: true
+      - name: x
+        required: true
+      - name: y
+        required: true
+  - - zoneout
+    - args:
+      - name: h
+        required: true
+      - name: x
+        required: true
+      - name: ratio
+        required: false
+      - name: train
+        required: false
+links: !!python/object/apply:collections.OrderedDict
+- - - BatchNormalization
+    - args:
+      - name: size
+        required: true
+      - name: decay
+        required: false
+      - name: eps
+        required: false
+      - name: dtype
+        required: false
+      - name: use_gamma
+        required: false
+      - name: use_beta
+        required: false
+      - name: initial_gamma
+        required: false
+      - name: initial_beta
+        required: false
+      - name: use_cudnn
+        required: false
+  - - Bias
+    - args:
+      - name: axis
+        required: false
+      - name: shape
+        required: false
+  - - Bilinear
+    - args:
+      - name: left_size
+        required: true
+      - name: right_size
+        required: true
+      - name: out_size
+        required: true
+      - name: nobias
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+  - - BinaryHierarchicalSoftmax
+    - args:
+      - name: in_size
+        required: true
+      - name: tree
+        required: true
+  - - BlackOut
+    - args:
+      - name: in_size
+        required: true
+      - name: counts
+        required: true
+      - name: sample_size
+        required: true
+  - - CRF1d
+    - args:
+      - name: n_label
+        required: true
+  - - Classifier
+    - args:
+      - name: predictor
+        required: true
+      - name: lossfun
+        required: false
+      - name: accfun
+        required: false
+  - - Convolution2D
+    - args:
+      - name: in_channels
+        required: true
+      - name: out_channels
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: wscale
+        required: false
+      - name: bias
+        required: false
+      - name: nobias
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+      - name: deterministic
+        required: false
+  - - ConvolutionND
+    - args:
+      - name: ndim
+        required: true
+      - name: in_channels
+        required: true
+      - name: out_channels
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: cover_all
+        required: false
+  - - Deconvolution2D
+    - args:
+      - name: in_channels
+        required: true
+      - name: out_channels
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: wscale
+        required: false
+      - name: bias
+        required: false
+      - name: nobias
+        required: false
+      - name: outsize
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+      - name: deterministic
+        required: false
+  - - DeconvolutionND
+    - args:
+      - name: ndim
+        required: true
+      - name: in_channels
+        required: true
+      - name: out_channels
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: outsize
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+      - name: use_cudnn
+        required: false
+  - - DilatedConvolution2D
+    - args:
+      - name: in_channels
+        required: true
+      - name: out_channels
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: dilate
+        required: false
+      - name: wscale
+        required: false
+      - name: bias
+        required: false
+      - name: nobias
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+  - - EmbedID
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: initialW
+        required: false
+      - name: ignore_label
+        required: false
+  - - GRU
+    - args:
+      - name: n_units
+        required: true
+      - name: n_inputs
+        required: false
+      - name: init
+        required: false
+      - name: inner_init
+        required: false
+      - name: bias_init
+        required: false
+  - - Highway
+    - args:
+      - name: in_out_size
+        required: true
+      - name: nobias
+        required: false
+      - name: activate
+        required: false
+      - name: init_Wh
+        required: false
+      - name: init_Wt
+        required: false
+      - name: init_bh
+        required: false
+      - name: init_bt
+        required: false
+  - - Inception
+    - args:
+      - name: in_channels
+        required: true
+      - name: out1
+        required: true
+      - name: proj3
+        required: true
+      - name: out3
+        required: true
+      - name: proj5
+        required: true
+      - name: out5
+        required: true
+      - name: proj_pool
+        required: true
+      - name: conv_init
+        required: false
+      - name: bias_init
+        required: false
+  - - InceptionBN
+    - args:
+      - name: in_channels
+        required: true
+      - name: out1
+        required: true
+      - name: proj3
+        required: true
+      - name: out3
+        required: true
+      - name: proj33
+        required: true
+      - name: out33
+        required: true
+      - name: pooltype
+        required: true
+      - name: proj_pool
+        required: false
+      - name: stride
+        required: false
+      - name: conv_init
+        required: false
+      - name: dtype
+        required: false
+  - - LSTM
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: kwargs
+        required: true
+  - - LayerNormalization
+    - args:
+      - name: size
+        required: false
+      - name: eps
+        required: false
+      - name: initial_gamma
+        required: false
+      - name: initial_beta
+        required: false
+  - - Linear
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: wscale
+        required: false
+      - name: bias
+        required: false
+      - name: nobias
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+  - - MLPConvolution2D
+    - args:
+      - name: in_channels
+        required: true
+      - name: out_channels
+        required: true
+      - name: ksize
+        required: true
+      - name: stride
+        required: false
+      - name: pad
+        required: false
+      - name: wscale
+        required: false
+      - name: activation
+        required: false
+      - name: use_cudnn
+        required: false
+      - name: conv_init
+        required: false
+      - name: bias_init
+        required: false
+  - - Maxout
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: pool_size
+        required: true
+      - name: wscale
+        required: false
+      - name: initialW
+        required: false
+      - name: initial_bias
+        required: false
+  - - NStepLSTM
+    - args:
+      - name: n_layers
+        required: true
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: dropout
+        required: true
+      - name: use_cudnn
+        required: false
+  - - NegativeSampling
+    - args:
+      - name: in_size
+        required: true
+      - name: counts
+        required: true
+      - name: sample_size
+        required: true
+      - name: power
+        required: false
+  - - PReLU
+    - args:
+      - name: shape
+        required: false
+      - name: init
+        required: false
+  - - Parameter
+    - args:
+      - name: array
+        required: true
+  - - ResNet101Layers
+    - args:
+      - name: pretrained_model
+        required: false
+  - - ResNet152Layers
+    - args:
+      - name: pretrained_model
+        required: false
+  - - ResNet50Layers
+    - args:
+      - name: pretrained_model
+        required: false
+  - - Scale
+    - args:
+      - name: axis
+        required: false
+      - name: W_shape
+        required: false
+      - name: bias_term
+        required: false
+      - name: bias_shape
+        required: false
+  - - StatefulGRU
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: init
+        required: false
+      - name: inner_init
+        required: false
+      - name: bias_init
+        required: false
+  - - StatefulPeepholeLSTM
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+  - - StatefulZoneoutLSTM
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: c_ratio
+        required: false
+      - name: h_ratio
+        required: false
+      - name: train
+        required: false
+  - - StatelessLSTM
+    - args:
+      - name: in_size
+        required: true
+      - name: out_size
+        required: true
+      - name: lateral_init
+        required: false
+      - name: upward_init
+        required: false
+      - name: bias_init
+        required: false
+      - name: forget_bias_init
+        required: false
+  - - TheanoFunction
+    - args:
+      - name: inputs
+        required: true
+      - name: outputs
+        required: true
+  - - VGG16Layers
+    - args:
+      - name: pretrained_model
+        required: false
