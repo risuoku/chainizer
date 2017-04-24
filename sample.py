@@ -30,32 +30,44 @@ config = {
                 'name': 'MLP',
                 'components': [
                     {
-                        'name': 'layer',
+                        'name': 'Linear',
                         'type': 'link',
-                        'params': {
-                            'n_in': None,
-                            'n_out': 1000,
-                        },
+                        'params': [
+                            {
+                                'name': 'in_size',
+                                'value': None,
+                            },
+                            {
+                                'name': 'out_size',
+                                'value': 1000,
+                            },
+                        ],
                     },
                     {
                         'name': 'relu',
                         'type': 'function',
-                        'params': {
-                        },
+                        'params': [
+                        ],
                     },
                     {
-                        'name': 'layer',
+                        'name': 'Linear',
                         'type': 'link',
-                        'params': {
-                            'n_in': None,
-                            'n_out': 10,
-                        },
+                        'params': [
+                            {
+                                'name': 'in_size',
+                                'value': None,
+                            },
+                            {
+                                'name': 'out_size',
+                                'value': 10,
+                            },
+                        ],
                     },
                     {
                         'name': 'relu',
                         'type': 'function',
-                        'params': {
-                        },
+                        'params': [
+                        ],
                     },
                 ],
                 'use_classifier': True

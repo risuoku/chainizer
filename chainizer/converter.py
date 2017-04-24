@@ -37,33 +37,53 @@ def convert_optimizer(config):
         raise ValueError('unsupported name!')
 
 
+from chainizer import specs
 def convert_model(config):
-    def render_link(o):
-        if o['name'] == 'layer':
-            return Template('L.Linear({{ n_in }}, {{ n_out }})').render(o['params'])
+    def validate_component(c):
+        def validate_required(c, argspec):
+            required_argspec_names = [a['name'] for a in argspec if a['required']]
+            if not len(set(required_argspec_names) - set([a['name'] for a in c['params']])) == 0:
+                raise Exception('not enough arguments!')
+    
+        if c['type'] == 'link':
+            validate_required(c, specs['links'][c['name']]['args'])
+        elif c['type'] == 'function':
+            # TODO
+            pass
         else:
-            raise ValueError('unsupported name!')
+            raise ValueError('invalid type!')
+
+    def generate_link_instance_name(link_name, idx):
+        return '_{}{}'.format(link_name, str(idx))
+
+    def render_link(o):
+        return 'L.{}({})'.format(o['name'], ','.join([str(a['value']) for a in o['params']]))
     
     def render_function(o):
-        if o['name'] == 'relu':
-            return Template('F.relu').render(o['params'])
-        else:
-            raise ValueError('unsupported name!')
+        return 'F.{}'.format(o['name'])
 
     def render_component_on_call(idx, o):
         if o['type'] == 'link':
-            return 'self.{}{}'.format(o['name'], idx)
+            return 'self.{}'.format(generate_link_instance_name(o['name'], idx))
         elif o['type'] == 'function':
             return render_function(o)
         else:
             raise ValueError('unsupported type!')
+
+    # validate components
+    for c in config['components']:
+        validate_component(c)
     
     # add link index
     for i, l in enumerate(config['components']):
         if l['type'] == 'link':
             config['components'][i]['_index'] = i
 
-    init_statements = ['self.add_link({}, {})'.format(_stringify(l['name'], str(l['_index'])), render_link(l)) for l in config['components'] if l['type'] == 'link']
+    init_statements = [
+        'self.add_link({}, {})'.format(_stringify(generate_link_instance_name(l['name'], l['_index'])), render_link(l))
+        for l in config['components']
+        if l['type'] == 'link'
+    ]
 
     # build call statements
     h = 'x'
