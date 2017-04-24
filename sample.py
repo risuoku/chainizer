@@ -31,8 +31,8 @@ config = {
                 'components': [
                     {
                         'name': 'Linear',
-                        'type': 'link',
-                        'params': [
+                        'type': 'links',
+                        'args': [
                             {
                                 'name': 'in_size',
                                 'value': None,
@@ -45,14 +45,12 @@ config = {
                     },
                     {
                         'name': 'relu',
-                        'type': 'function',
-                        'params': [
-                        ],
+                        'type': 'functions',
                     },
                     {
                         'name': 'Linear',
-                        'type': 'link',
-                        'params': [
+                        'type': 'links',
+                        'args': [
                             {
                                 'name': 'in_size',
                                 'value': None,
@@ -65,9 +63,7 @@ config = {
                     },
                     {
                         'name': 'relu',
-                        'type': 'function',
-                        'params': [
-                        ],
+                        'type': 'functions',
                     },
                 ],
                 'use_classifier': True

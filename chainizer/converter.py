@@ -37,52 +37,38 @@ def convert_optimizer(config):
         raise ValueError('unsupported name!')
 
 
-from chainizer import specs
+from chainizer.specs import default as default_spec
 def convert_model(config):
-    def validate_component(c):
-        def validate_required(c, argspec):
-            required_argspec_names = [a['name'] for a in argspec if a['required']]
-            if not len(set(required_argspec_names) - set([a['name'] for a in c['params']])) == 0:
-                raise Exception('not enough arguments!')
-    
-        if c['type'] == 'link':
-            validate_required(c, specs['links'][c['name']]['args'])
-        elif c['type'] == 'function':
-            # TODO
-            pass
-        else:
-            raise ValueError('invalid type!')
-
     def generate_link_instance_name(link_name, idx):
         return '_{}{}'.format(link_name, str(idx))
 
     def render_link(o):
-        return 'L.{}({})'.format(o['name'], ','.join([str(a['value']) for a in o['params']]))
+        return 'L.{}({})'.format(o['name'], ','.join([str(a['value']) for a in o['args']]))
     
     def render_function(o):
         return 'F.{}'.format(o['name'])
 
     def render_component_on_call(idx, o):
-        if o['type'] == 'link':
+        if o['type'] == 'links':
             return 'self.{}'.format(generate_link_instance_name(o['name'], idx))
-        elif o['type'] == 'function':
+        elif o['type'] == 'functions':
             return render_function(o)
         else:
             raise ValueError('unsupported type!')
 
     # validate components
     for c in config['components']:
-        validate_component(c)
+        default_spec.validate(c)
     
     # add link index
     for i, l in enumerate(config['components']):
-        if l['type'] == 'link':
+        if l['type'] == 'links':
             config['components'][i]['_index'] = i
 
     init_statements = [
         'self.add_link({}, {})'.format(_stringify(generate_link_instance_name(l['name'], l['_index'])), render_link(l))
         for l in config['components']
-        if l['type'] == 'link'
+        if l['type'] == 'links'
     ]
 
     # build call statements

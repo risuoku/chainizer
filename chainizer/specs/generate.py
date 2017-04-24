@@ -1,15 +1,22 @@
 import chainer
+from chainer.training import extensions as training_extensions
 import inspect
-import yaml
+import pickle
 import collections
+import os
+
 
 
 def get_module_spec(mod):
     def _filter(o):
-        if mod.__name__ == 'chainer.links':
+        if mod is chainer.links:
             return inspect.isclass(o)
-        elif mod.__name__ == 'chainer.functions':
-            return inspect.isclass(o) or inspect.isfunction(o)
+        elif mod is chainer.functions:
+            return inspect.isfunction(o)
+        elif mod is chainer.optimizers:
+            return inspect.isclass(o)
+        elif mod is training_extensions:
+            return inspect.isclass(o)
         else:
             raise TypeError('invalid type!')
 
@@ -38,11 +45,13 @@ def main():
     spec = {
         'links': get_module_spec(chainer.links),
         'functions': get_module_spec(chainer.functions),
+        'optimizers': get_module_spec(chainer.optimizers),
+        'training_extensions': get_module_spec(training_extensions),
     }
     
     # create file
-    with open(version + '.yml', 'w') as f:
-        f.write(yaml.dump(spec, default_flow_style=False))
+    with open(os.path.join('versions', version + '.pickle'), 'wb') as f:
+        pickle.dump(spec, f)
 
 
 if __name__ == '__main__':
