@@ -7,23 +7,27 @@ config = {
                 'minibatch_size': 100,
             },
             'optimizer': {
-                'name': 'adam',
+                'name': 'Adam',
+                'type': 'optimizers',
             },
             'extensions': [
                 {
-                    'name': 'Evaluator',
+                    'name': 'PrintReport',
+                    'type': 'training_extensions',
+                    'args': [
+                        {
+                            'name': 'entries',
+                            'value': ['epoch', 'main/loss','main/accuracy', 'elapsed_time',]
+                        },
+                    ],
                 },
                 {
-                    'name': 'PrintReport',
-                    'params': {
-                        'entries': [
-                            'epoch', 'main/loss', 'validation/main/loss',
-                            'main/accuracy', 'validation/main/accuracy', 'elapsed_time',
-                        ],
-                    },
+                    'name': 'LogReport',
+                    'type': 'training_extensions',
                 },
                 {
                     'name': 'ProgressBar',
+                    'type': 'training_extensions',
                 }
             ],
             'model': {

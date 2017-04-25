@@ -2,6 +2,7 @@ import chainer
 import chainer.links as L
 import chainer.functions as F
 import chainer.training as training
+from chainer.training import extensions
 
 # chain
 
@@ -41,6 +42,11 @@ def main():
     # updater, trainer
     updater = training.StandardUpdater(train_iter, optimizer)
     trainer = training.Trainer(updater, ({{ epoch }}, 'epoch'))
+
+    # trainer extension
+    {%- for stmt in statements.extensions %}
+    {{ stmt }}
+    {%- endfor %}
 
     # run
     trainer.run()

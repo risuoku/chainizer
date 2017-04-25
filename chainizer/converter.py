@@ -1,6 +1,7 @@
 from jinja2 import Template
 import importlib
 import collections
+from chainizer.specs import default as default_spec
 
 mod_self = importlib.import_module(__name__)
 
@@ -13,6 +14,9 @@ def _render(statements, config):
 
 def _stringify(*s):
     return '\'{}\''.format(''.join(s))
+
+def _args_str(o):
+    return ','.join([str(a['value']) for a in o['args']])
 
 
 def convert_datasource(config):
@@ -28,22 +32,29 @@ def convert_datasource(config):
 
 
 def convert_optimizer(config):
-    if config['name'] == 'adam':
-        statements = [
-            'optimizer = chainer.optimizers.Adam()'
-        ]
-        return _render(statements, config)
-    else:
-        raise ValueError('unsupported name!')
+    default_spec.validate(config)
+    statements = [
+        'optimizer = chainer.optimizers.{}({})'.format(config['name'], _args_str(config))
+    ]
+    return _render(statements, config)
 
 
-from chainizer.specs import default as default_spec
+def convert_extensions(config):
+    for idx, c in enumerate(config):
+        default_spec.validate(config[idx])
+    statements = [
+        'trainer.extend(extensions.{}({}))'.format(c['name'], _args_str(c))
+        for c in config
+    ]
+    return statements
+
+
 def convert_model(config):
     def generate_link_instance_name(link_name, idx):
         return '_{}{}'.format(link_name, str(idx))
 
     def render_link(o):
-        return 'L.{}({})'.format(o['name'], ','.join([str(a['value']) for a in o['args']]))
+        return 'L.{}({})'.format(o['name'], _args_str(o))
     
     def render_function(o):
         return 'F.{}'.format(o['name'])
