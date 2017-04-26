@@ -20,15 +20,11 @@ def _args_str(o):
 
 
 def convert_datasource(config):
-    if config['name'] == 'mnist':
-        statements = [
-            'train, test = chainer.datasets.get_mnist()',
-            'train_iter = chainer.iterators.SerialIterator(train, {{ minibatch_size }})',
-            'test_iter = chainer.iterators.SerialIterator(test, {{ minibatch_size }})',
-        ]
-        return _render(statements, config)
-    else:
-        raise ValueError('unsupported name!')
+    statements = [
+        'train_iter = chainer.iterators.SerialIterator(train_data, {{ minibatch_size }})',
+        'test_iter = chainer.iterators.SerialIterator(test_data, {{ minibatch_size }})',
+    ]
+    return _render(statements, config)
 
 
 def convert_optimizer(config):

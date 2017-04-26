@@ -21,7 +21,7 @@ class {{ model.name }}(chainer.Chain):
 
 # main
 
-def main():
+def get_trainer():
     # datasource
     {%- for stmt in statements.datasource %}
     {{ stmt }}
@@ -48,9 +48,4 @@ def main():
     {{ stmt }}
     {%- endfor %}
 
-    # run
-    trainer.run()
-
-
-if __name__ == '__main__':
-    main()
+    return trainer

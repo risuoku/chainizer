@@ -57,7 +57,8 @@ class Spec:
                 raise ValidationFailed('`name` and `value` must exist')
             if arg['name'] not in all_args_names:
                 raise ValidationFailed('invalid args name')
-            required_args_names.remove(arg['name'])
+            if arg['name'] in required_args_names:
+                required_args_names.remove(arg['name'])
         
         if (not len(required_args_names) == 0) and (not obj['type'] == 'functions'): # functionsはrequiredを無視する
             raise ValidationFailed('required arg not set')
