@@ -1,6 +1,8 @@
 from chainizer.renderer import render as chainizer_render
 from chainizer.logging import getLogger
 
+import sys
+
 logger = getLogger(__name__)
 
 
@@ -15,6 +17,8 @@ class Provider:
         global test_data
         train_data, test_data = self.to_chainerdataset()
         for idx, trc in enumerate(self._config['trainers']):
+            if 'customized' in trc['model']:
+                setattr(sys.modules[__name__], trc['model']['name'],  trc['model']['customized'])
             exec(chainizer_render(trc), globals())
             self._trainers[self._config.get('name', 'trainer{}'.format(idx))] = get_trainer()
         return self

@@ -6,6 +6,7 @@ from chainer.training import extensions
 
 # chain
 
+{%- if not model.customized %}
 class {{ model.name }}(chainer.Chain):
     def __init__(self):
         super({{ model.name }}, self).__init__()
@@ -17,6 +18,7 @@ class {{ model.name }}(chainer.Chain):
         {%- for stmt in statements.model.call %}
         {{ stmt }}
         {%- endfor %}
+{%- endif %}
 
 
 # main

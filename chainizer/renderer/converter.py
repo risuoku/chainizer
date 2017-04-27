@@ -46,6 +46,10 @@ def convert_extensions(config):
 
 
 def convert_model(config):
+    # for customized Model
+    if 'customized' in config:
+        return
+
     def generate_link_instance_name(link_name, idx):
         return '_{}{}'.format(link_name, str(idx))
 
