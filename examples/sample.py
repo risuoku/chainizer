@@ -22,6 +22,12 @@ trainer_config = {
         {
             'name': 'LogReport',
             'type': 'training_extensions',
+            'args': [
+                {
+                    'name': 'log_name',
+                    'value': None,
+                },
+            ],
         },
         {
             'name': 'ProgressBar',

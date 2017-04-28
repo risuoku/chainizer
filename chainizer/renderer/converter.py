@@ -16,7 +16,17 @@ def _stringify(*s):
     return '\'{}\''.format(''.join(s))
 
 def _args_str(o):
-    return ','.join([str(a['value']) for a in o['args']])
+    args = o['args']
+    this_spec = default_spec[o['type']][o['name']]
+    def _generate_arg(c):
+        for sp in this_spec['args']:
+            if c['name'] == sp['name']:
+                if sp['required']:
+                    return c['value']
+                else:
+                    return '{}={}'.format(c['name'], c['value'])
+        raise Exception('unknown error')
+    return ','.join([str(_generate_arg(a)) for a in o['args']])
 
 
 def convert_datasource(config):
