@@ -1,7 +1,7 @@
 from jinja2 import Template
 import importlib
 import collections
-from chainizer.specs import default as default_spec
+from chainizer.specs import proxy as spec_proxy
 
 mod_self = importlib.import_module(__name__)
 
@@ -17,7 +17,7 @@ def _stringify(*s):
 
 def _args_str(o):
     args = o['args']
-    this_spec = default_spec[o['type']][o['name']]
+    this_spec = spec_proxy[o['type']][o['name']]
     def _generate_arg(c):
         for sp in this_spec['args']:
             if c['name'] == sp['name']:
@@ -38,7 +38,7 @@ def convert_datasource(config):
 
 
 def convert_optimizer(config):
-    default_spec.validate(config)
+    spec_proxy.validate(config)
     statements = [
         'optimizer = chainer.optimizers.{}({})'.format(config['name'], _args_str(config))
     ]
@@ -47,7 +47,7 @@ def convert_optimizer(config):
 
 def convert_extensions(config):
     for idx, c in enumerate(config):
-        default_spec.validate(config[idx])
+        spec_proxy.validate(config[idx])
     statements = [
         'trainer.extend(extensions.{}({}))'.format(c['name'], _args_str(c))
         for c in config
@@ -79,7 +79,7 @@ def convert_model(config):
 
     # validate components
     for c in config['components']:
-        default_spec.validate(c)
+        spec_proxy.validate(c)
     
     # add link index
     for i, l in enumerate(config['components']):

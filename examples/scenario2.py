@@ -55,10 +55,10 @@ trainer_config = {
 }
 
 config = {
-    'name': 'scenario2',
+    'name': 'MyScenario',
     'providers': [
         {
-            'name': 'mnist',
+            'name': 'MnistProvider',
             'trainers': [
                 trainer_config,
             ]
@@ -76,15 +76,21 @@ class MnistProvider(Provider):
 
 
 class MyScenario(Scenario):
-    provider_cls = {
-        'mnist': MnistProvider
-    }
+    provider_cls = [
+        MnistProvider
+    ]
 
     def load(self):
         import chainer
         return chainer.datasets.get_mnist()
 
 
+def create_scenario(cnf):
+    import sys
+    cls = getattr(sys.modules[__name__], cnf['name'])
+    return cls(cnf)
+
+
 if __name__ == '__main__':
-    s = MyScenario(config)
-    s.build().run()
+    s = create_scenario(config)
+    s.build()

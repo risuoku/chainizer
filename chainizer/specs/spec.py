@@ -2,19 +2,18 @@ import sys
 import chainer
 import pickle
 import os
+from .exceptions import ValidationFailed
 
-
-class ValidationFailed(Exception):
-    pass
 
 
 class Spec:
     def __init__(self):
         self._value = None
 
-    def build(self):
-        with open(os.path.join(os.path.dirname(__file__), 'versions', chainer.__version__ + '.pickle'), 'rb') as f:
-            self._value = pickle.load(f)
+    def build(self, load = True):
+        if load:
+            with open(os.path.join(os.path.dirname(__file__), 'versions', chainer.__version__ + '.pickle'), 'rb') as f:
+                self._value = pickle.load(f)
         return self
 
     def __getitem__(self, key):
